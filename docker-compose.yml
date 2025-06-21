@@ -1,0 +1,48 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      target: prod
+    restart: always
+    container_name: bfm-app
+    working_dir: /var/www
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www:cached
+    depends_on:
+      - db
+      - redis
+    networks:
+      - beauty-framework-module-network
+
+  db:
+    image: postgres:16-alpine
+    container_name: bfm-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - beauty-framework-module-network
+
+  redis:
+    image: redis:alpine
+    container_name: bfm-redis
+    restart: always
+    volumes:
+      - redis_data:/data
+    networks:
+      - beauty-framework-module-network
+
+volumes:
+  pg_data:
+  redis_data:
+
+networks:
+  beauty-framework-module-network:
+    driver: bridge

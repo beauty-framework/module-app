@@ -1,7 +1,7 @@
 ![logo](https://github.com/user-attachments/assets/56a1d64d-8470-481a-b58e-33585270279c)
 # 🧱 Beauty Framework
 
-**Beauty** is a blazing-fast, PSR-compliant, modular microframework for building REST and gRPC APIs on top of RoadRunner. It provides first-class support for clean architecture, strong developer ergonomics, and production-ready features without FPM overhead.
+**Beauty** is a blazing-fast, PSR-compliant, modular microframework for building REST and gRPC APIs on top of RoadRunner. It provides first-class support for clean architecture, strong developer ergonomics, and production-ready features without FPM overhead. This skeleton is ideal for building microservices, APIs, and gRPC services with Modular Architecture.
 
 ---
 
@@ -14,6 +14,7 @@ Beauty is designed as a lightweight, modular and fast foundation for building mi
 * ⚙️ Clean architecture: clear separation between application layers
 * 🧪 Testing-friendly: services are testable by design
 * 🐳 Docker-first: fully containerized by default
+* 📦 Modularity: easy to extend
 
 ---
 
@@ -27,28 +28,34 @@ Beauty is designed as a lightweight, modular and fast foundation for building mi
 * Jobs, events, queues (via RoadRunner)
 * Console kernel for CLI tools
 * Powered by RoadRunner — no FPM
+* Modular architecture
 
 ---
 
 ## 🗂 Project Structure
 
-```
+```shell
 ├── app
-│   ├── Console         # CLI commands
-│   ├── Container       # DI bindings for core services
-│   ├── Controllers     # HTTP/API controllers
-│   ├── Events          # Application events
-│   ├── Jobs            # Async jobs
-│   ├── Listeners       # Event listeners
-│   ├── Middlewares     # PSR-15 middleware
-│   ├── Requests        # Validated requests
-│   ├── Responses       # Typed responses
-│   ├── Repositories    # Data access
-│   └── Services        # Business logic
-├── config              # Configuration files
-├── workers             # RoadRunner workers (http, jobs, etc)
-├── bootstrap           # Kernel bootstrapping
-├── public/index.php    # Entry point (optional)
+│   ├── Console               # CLI commands
+│   └── Container             # DI bindings for core services      
+├── modules
+│   └── hello                 # Example module
+│       ├── composer.json     # Module metadata
+│       └── src
+│           ├── Container     # Module-specific DI bindings
+│           ├── Controllers   # HTTP/API controllers
+│           ├── Events        # Application events
+│           ├── Jobs          # Async jobs
+│           ├── Listeners     # Event listeners
+│           ├── Middlewares   # PSR-15 middleware
+│           ├── Repositories  # Data access
+│           ├── Requests      # Validated requests
+│           ├── Responses     # Typed responses
+│           └── Services      # Business logic
+├── config                    # Configuration files
+├── workers                   # RoadRunner workers (http, jobs, etc)
+├── bootstrap                 # Kernel bootstrapping
+├── public/index.php          # Entry point (optional)
 ```
 
 ---
@@ -56,7 +63,7 @@ Beauty is designed as a lightweight, modular and fast foundation for building mi
 ## 📦 Installation
 
 ```bash
-composer create-project beauty-framework/app beauty-framework
+composer create-project beauty-framework/module-app beauty-framework
 cd beauty-framework
 cp .env.example .env
 make up # or make prod
@@ -101,6 +108,7 @@ REDIS_PORT=6379
 | generate\:event      | Create a new event         |
 | generate\:listener   | Create a new listener      |
 | generate\:job        | Create a new job           |
+| generate\:module     | Create a new module        |
 
 ---
 
@@ -175,6 +183,8 @@ See [documentation](https://beauty-framework.github.io/) page
 * [`beauty-framework/cli`](https://github.com/beauty-framework/cli): Framework-aware CLI kernel
 * [`beauty-framework/parallels`](https://github.com/beauty-framework/parallels): Parallel processing with Fibers (todo: RoadRunner)
 * [`beauty-framework/grpc`](https://github.com/beauty-framework/grpc): gRPC support (optional)
+* [`beauty-framework/collection`](https://github.com/beauty-framework/collection): Collection via `Array` or `Ds\Map` (optional)
+* [`beauty-framework/module-support`](https://github.com/beauty-framework/module-support): Module generation support (optional)
 
 ---
 
@@ -182,10 +192,10 @@ See [documentation](https://beauty-framework.github.io/) page
 
 * [ ] ORM support (query builder + migrations)
 * [ ] `beauty/testing` package with framework-aware test harness
-* [ ] gRPC server module with RoadRunner integration
+* [x] gRPC server module with RoadRunner integration
 * [ ] Job retries, delays, and failure handlers
 * [ ] OpenAPI/Swagger support
-* [ ] Full module documentation
+* [x] Full module documentation
 
 ---
 

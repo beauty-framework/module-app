@@ -51,7 +51,12 @@ while ($psrRequest = $worker->waitRequest()) {
     } catch (Throwable $e) {
         $trace = null;
         if (env('APP_DEBUG')) {
-            $trace = $e->getTrace();
+            $trace = [
+                'line' => $e->getLine(),
+                'file' => $e->getFile(),
+                'previous' => $e->getPrevious(),
+                'trace' => $e->getTrace(),
+            ];
         }
 
         $worker->respond(new JsonResponse(500, new ErrorResponse($e->getMessage(), $trace)));

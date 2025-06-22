@@ -3,12 +3,11 @@ declare(strict_types=1);
 
 namespace Module\Hello\Repositories;
 
+use Module\Hello\Repositories\Contracts\EmployersRepositoryInterface;
+
 class EmployersRepository implements EmployersRepositoryInterface
 {
 
-    /**
-     * @return array[]
-     */
     public function list(): array
     {
         return [
@@ -18,7 +17,7 @@ class EmployersRepository implements EmployersRepositoryInterface
                 'occupation' => 'Espionage',
                 'role' => 'Special Agent',
                 'affiliation' => 'OWCA',
-            ]
+            ],
         ];
     }
 }

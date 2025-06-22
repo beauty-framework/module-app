@@ -4,11 +4,14 @@
   "description": "Beauty Framework app",
   "keywords": [
     "beauty",
+    "modules",
     "app"
   ],
   "license": "MIT",
-  "authors": [],
-  "version": "1.0.3",
+  "authors": [
+    "Kirill Sakharov <kirillsakharov.personal@gmail.com>"
+  ],
+  "version": "1.0.0",
   "prefer-stable": true,
   "minimum-stability": "stable",
   "require": {
@@ -18,6 +21,7 @@
     "beauty-framework/cache": "^1.0",
     "beauty-framework/parallels": "^1.0",
     "beauty-framework/jobs": "^1.0",
+    "beauty-framework/module-support": "^1.0",
     "module/hello": "*"
   },
   "autoload": {

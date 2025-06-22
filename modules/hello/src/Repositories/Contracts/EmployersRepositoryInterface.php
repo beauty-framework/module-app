@@ -1,12 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Module\Hello\Repositories;
+namespace Module\Hello\Repositories\Contracts;
 
 interface EmployersRepositoryInterface
 {
-    /**
-     * @return array
-     */
     public function list(): array;
 }

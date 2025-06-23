@@ -185,6 +185,7 @@ See [documentation](https://beauty-framework.github.io/) page
 * [`beauty-framework/grpc`](https://github.com/beauty-framework/grpc): gRPC support (optional)
 * [`beauty-framework/collection`](https://github.com/beauty-framework/collection): Collection via `Array` or `Ds\Map` (optional)
 * [`beauty-framework/module-support`](https://github.com/beauty-framework/module-support): Module generation support (optional)
+* [`beauty-framework/openapi-support`](https://github.com/beauty-framework/openapi-support): Support OpenAPI schema and Redoc for API docs (optional)
 
 ---
 

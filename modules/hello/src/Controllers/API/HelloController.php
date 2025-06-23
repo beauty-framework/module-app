@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Module\Hello\Controllers\API;
 
-use App\Responses\XmlResponse;
 use Beauty\Core\Router\Route;
 use Beauty\Http\Enums\HttpMethodsEnum;
 use Beauty\Http\Request\HttpRequest;
@@ -17,7 +16,7 @@ class HelloController
     #[Route(HttpMethodsEnum::GET, '/api/hello')]
     public function index(HttpRequest $request, EmployersRepositoryInterface $repository): ResponseInterface
     {
-        return new XmlResponse(200, [
+        return new JsonResponse(200, [
             'message' => 'Hello, world',
             'data' => $repository->list(),
         ]);

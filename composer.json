@@ -14,7 +14,7 @@
       "email": "kirillsakharov.personal@gmail.com"
     }
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "prefer-stable": true,
   "minimum-stability": "stable",
   "require": {

@@ -4,7 +4,7 @@ server:
   command: "php workers/http-worker.php"
   relay: pipes
   env:
-    - XDEBUG_SESSION: 1
+    - XDEBUG_SESSION: 0
 
 http:
   address: 0.0.0.0:${HTTP_PORT:-8080}
@@ -26,7 +26,7 @@ http:
     # cpu: true
     supervisor:
       watch_tick: 1s
-    debug: true
+    debug: false
 
   static:
     dir: "public"
@@ -35,7 +35,7 @@ http:
 jobs:
   consume: ["default", "high"]
   pool:
-    debug: true
+    debug: false
     command: "php workers/jobs-worker.php"
     num_workers: 4
   pipelines:
